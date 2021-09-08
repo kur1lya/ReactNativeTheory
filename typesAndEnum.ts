@@ -216,41 +216,41 @@
     ~ Написать функцию которая принимает массив объектов и выводит в консоль сообщения следующего вида "My name is {name}. I am {role}" для каждого объекта.
 
 */
-// enum Role {
-//   administrator = "administrator",
-//   author = "author",
-//   moderator = "moderator",
-// }
-// let person1: object = {
-//   name: "Jon",
-//   age: 19,
-//   sex: "Men",
-//   role: Role['administrator'],
-// };
-// let person2: object = {
-//   name: "Kate",
-//   age: 21,
-//   sex: "Woman",
-//   role: Role['author'],
-// };
-// let person3: object = {
-//   name: "Karl",
-//   age: 18,
-//   sex: "Men",
-//   role: Role['moderator'],
-// };
+enum Role {
+  administrator = "administrator",
+  author = "author",
+  moderator = "moderator",
+}
+let person1: object = {
+  name: "Jon",
+  age: 19,
+  sex: "Men",
+  role: Role['administrator'],
+};
+let person2: object = {
+  name: "Kate",
+  age: 21,
+  sex: "Woman",
+  role: Role['author'],
+};
+let person3: object = {
+  name: "Karl",
+  age: 18,
+  sex: "Men",
+  role: Role['moderator'],
+};
 
-// let arr: object[] = [person1,person2,person3];
+let arr: object[] = [person1,person2,person3];
 
-// console.log(Role[0]);
+console.log(Role[0]);
 
-// function someText(arr) {
-//     arr.forEach((element)=>{
-//         console.log(`my name is ${element.name}. I am ${element.role}`)
-//     })
+function someText(arr) {
+    arr.forEach((element)=>{
+        console.log(`my name is ${element.name}. I am ${element.role}`)
+    })
   
-// }
-// someText(arr)
+}
+someText(arr)
 
 
 /*
@@ -264,17 +264,17 @@
         })
 
 */
-// function sum(x, y) {
-//       if (typeof x === "string" || typeof y === "string") {
-//         console.log("Incorrect input !");
-//       } else {
-//         console.log(x + y);
-//       }
-//     }
+function sum(x, y) {
+      if (typeof x === "string" || typeof y === "string") {
+        console.log("Incorrect input !");
+      } else {
+        console.log(x + y);
+      }
+    }
 
-//     function addAndHandle() {
+    function addAndHandle() {
         
-//     }
+    }
 /*
         Задание 9
     ~ Написать функцию, с возвращаемым значением типа never
