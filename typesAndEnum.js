@@ -184,29 +184,29 @@ var Role;
     Role["author"] = "author";
     Role["moderator"] = "moderator";
 })(Role || (Role = {}));
-var person1 = {
+let person1 = {
     name: "Jon",
     age: 19,
     sex: "Men",
-    role: Role['administrator']
+    role: Role['administrator'],
 };
-var person2 = {
+let person2 = {
     name: "Kate",
     age: 21,
     sex: "Woman",
-    role: Role['author']
+    role: Role['author'],
 };
-var person3 = {
+let person3 = {
     name: "Karl",
     age: 18,
     sex: "Men",
-    role: Role['moderator']
+    role: Role['moderator'],
 };
-var arr = [person1, person2, person3];
+let arr = [person1, person2, person3];
 console.log(Role[0]);
 function someText(arr) {
-    arr.forEach(function (element) {
-        console.log("my name is " + element.name + ". I am " + element.role);
+    arr.forEach((element) => {
+        console.log(`my name is ${element.name}. I am ${element.role}`);
     });
 }
 someText(arr);
@@ -235,9 +235,9 @@ function addAndHandle() {
         Задание 9
     ~ Написать функцию, с возвращаемым значением типа never
 */
-function never() {
-    while (true) { }
-}
+// function never(): never {
+//     while (true) {}
+//   }
 /*
         Задание 10
     ~ Создать вычисляемое перечисление с городами (Харьков, Киев, Львов, Одесса) и их почтовыми индексами.
@@ -270,3 +270,4 @@ function never() {
 */
 //Добавить код сюда...
 //# sourceMappingURL=TypesAndEnums.js.map
+//# sourceMappingURL=typesAndEnum.js.map
