@@ -17,8 +17,7 @@
     Внимательно изучи соответствующий материал официальной документации и переходи к парктическим заданиям:
 --> https://www.typescriptlang.org/docs/handbook/basic-types.html <--
 --> https://www.typescriptlang.org/docs/handbook/advanced-types.html#type-aliases <--
-*/ 
-
+*/
 
 /*  
         Задание 1 
@@ -31,11 +30,9 @@
 // let someText: string = "decription";
 // console.log(someText);
 
-
 // //2. type number
 // let someNumber: number = 23;
 // console.log(someNumber);
-
 
 // //3. type bigint
 // // let someBigint: bigint = 110n;
@@ -44,11 +41,9 @@
 // let bool: boolean = true;
 // console.log(bool);
 
-
 // //5. type array
 // let arr: string[] = ["red", "blue", "green"];
 // console.log(arr)
-
 
 // //6. type tuple
 // let arrTuple: [boolean, number];
@@ -65,7 +60,6 @@
 // }
 // let c: Car = Car.Kia;
 // console.log(c);
-
 
 // //8. type uknown
 // let something: unknown = "string";
@@ -87,20 +81,17 @@
 // }
 // console.log(empty());
 
-
 // //11. type undefined and null
 // let u: undefined = undefined;
 // let n: null = null;
 
 // console.log(u,n);
 
-
 // //12. type never  -?
 // // function nev(): never {
 // //   while (true) {}
 // // }
 // // console.log(nev());      ...infinity cicle
-
 
 // //13. type object
 // const proto = {};
@@ -164,28 +155,25 @@
 // }
 // combine('mama','mia','as-string')
 /*
-        Задание 5   ???
+        Задание 5   
     ~ Объявить переменную A типа any и задать ей значение 'example'. Объявить константу типа Tuple с кодом ошибки и ее текстом
     ~ Написать функцию, которая проверит, что А не является чем-то из следующего списка null, undefined, NaN, '', 0, false
     ~ Если условие не выполняется вывести код и текст ошибки консоль
     ~ Проверить работу функции присвоив переменной А значение undefined
 */
-// let A: any = 'undefined';
+// let A: any = undefined;
 
 // let errText: [number, string];
-// errText = [23, "ss"];
+// errText = [501, "Error"];
 
 // function examination() {
-//   try {
-//     if (A) {
-//       console.log("work");
-//     }
-
-//   } catch (e) {
-//     console.log(e.name);
+//   if (A) {
+//     console.log("work");
+//   } else {
+//     console.log( errText[0]+ ": " + errText[1]);
 //   }
 // }
-// examination()
+// examination();
 
 /*
         Задание 6
@@ -216,45 +204,42 @@
     ~ Написать функцию которая принимает массив объектов и выводит в консоль сообщения следующего вида "My name is {name}. I am {role}" для каждого объекта.
 
 */
-enum Role {
-  administrator = "administrator",
-  author = "author",
-  moderator = "moderator",
-}
-let person1: object = {
-  name: "Jon",
-  age: 19,
-  sex: "Men",
-  role: Role['administrator'],
-};
-let person2: object = {
-  name: "Kate",
-  age: 21,
-  sex: "Woman",
-  role: Role['author'],
-};
-let person3: object = {
-  name: "Karl",
-  age: 18,
-  sex: "Men",
-  role: Role['moderator'],
-};
+// enum Role {
+//   administrator = "administrator",
+//   author = "author",
+//   moderator = "moderator",
+// }
+// let person1: object = {
+//   name: "Jon",
+//   age: 19,
+//   sex: "Men",
+//   role: Role['administrator'],
+// };
+// let person2: object = {
+//   name: "Kate",
+//   age: 21,
+//   sex: "Woman",
+//   role: Role['author'],
+// };
+// let person3: object = {
+//   name: "Karl",
+//   age: 18,
+//   sex: "Men",
+//   role: Role['moderator'],
+// };
 
-let arr: object[] = [person1,person2,person3];
+// let arr: object[] = [person1,person2,person3];
 
-console.log(Role[0]);
+// function someText(arr) {
+//     arr.forEach((element)=>{
+//         console.log(`my name is ${element.name}. I am ${element.role}`)
+//     })
 
-function someText(arr) {
-    arr.forEach((element)=>{
-        console.log(`my name is ${element.name}. I am ${element.role}`)
-    })
-  
-}
-someText(arr)
-
+// }
+// someText(arr)
 
 /*
-        Задание 8 ????
+        Задание 8 
     ~ Используйте функцию с Задания 2 для сложения двух чисел.
     ~ Написать функцию addAndHandle, которая будет возвращать результат вычисления в качестве Callback.
     ~ Явно указать тип возвращаемого значения для функций
@@ -264,17 +249,20 @@ someText(arr)
         })
 
 */
-function sum(x, y) {
-      if (typeof x === "string" || typeof y === "string") {
-        console.log("Incorrect input !");
-      } else {
-        console.log(x + y);
-      }
-    }
+// function sum(x, y) {
+//   if (typeof x === "string" || typeof y === "string") {
+//     console.log("Incorrect input !");
+//   } else {
+//     console.log(x + y);
+//   }
+// }
 
-    function addAndHandle() {
-        
-    }
+// function addAndHandle(x: number, y: number, callback): number {
+
+//   return callback(x,y)
+// }
+// addAndHandle(10, 20,sum);
+
 /*
         Задание 9
     ~ Написать функцию, с возвращаемым значением типа never
@@ -282,26 +270,77 @@ function sum(x, y) {
 // function never(): never {
 //     while (true) {}
 //   }
+// выхода из цикла не будет
 /*
-        Задание 10
-    ~ Создать вычисляемое перечисление с городами (Харьков, Киев, Львов, Одесса) и их почтовыми индексами.
-    ~ Написать функцию. которая возвращает индекс города.
-    ~ Вывести в консоль города с индексами.
-*/
-//Добавить код сюда...
+//         Задание 10
+//     ~ Создать вычисляемое перечисление с городами (Харьков, Киев, Львов, Одесса) и их почтовыми индексами.
+//     ~ Написать функцию. которая возвращает индекс города.
+//     ~ Вывести в консоль города с индексами.
+// */
+
+// enum Cities {
+//     Kharkiv = "61000",
+//     Kiev = "03148",
+//     Lviv = "79007",
+//     Odessa = "65125",
+//   }
+  
+//   let directions:string[]=[Cities.Kharkiv, Cities.Kiev, Cities.Lviv, Cities.Odessa];
+  
+//   let first = Cities.Kharkiv;
+  
+//   function Index(arr:string[]) {
+//       arr.map((item,i)=>console.log(arr[i]) )
+      
+//   }
+  
+//   for (let key in Cities) {
+//     console.log(key  );
+//   }
+//   Index(directions)
+  
+
+
 /*
         Задание 11
     ~ Создай 5 строк с названием стран
     ~ Если в названии страны встречается буква А, выведи ее нзавание в консоль
 */
-//Добавить код сюда...
+// let arr:string[] = ["Austria", "Italia", "Monako", 'Armenia', 'Andora'];
+// let letter = "A";
+
+// function filter(params:string[]) {
+//   arr.map((item, i) => {
+//     if (item.indexOf(letter) >= 0) {
+//       console.log(arr[i]);
+//     } else {
+//       return -1;
+//     }
+//   });
+// }
+// filter(arr)
+
 /*
         Задание 12
     ~ Объявить несколько массивов типа number и заполнить их разным количеством элементов.
     ~ Объявить Tuple в который можно передать любой из объявленных массивов и текстовое значение.
     ~ Создать функцию в качестве аргумента которой созданный Tuple. Вывести в консоль текстовое значение из Tuple и количество элементов массива цифр
 */
-//Добавить код сюда...
+
+// let A: number[] = [5, 3, 4, 1];
+// let B: number[] = [6, 2, 1, 9, 7];
+
+// let x: [number[], string];
+
+// function Tuple(arg: typeof x) {
+//   let res = arg.[0]
+//   //   let arr = [].length;
+//   //   let str: string;
+//   //   console.log(str + " " + arr);
+//   console.log(res);
+// }
+// Tuple([A, "something"]);
+
 /*
         Задание 13
     ~ Написать метод without, который будет принимать объект со свойствами разных типов и тип.
