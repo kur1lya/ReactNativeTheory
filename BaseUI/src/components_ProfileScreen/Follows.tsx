@@ -3,8 +3,8 @@ import {TextInput, View, Text, StyleSheet} from 'react-native';
 import {Queue} from 'react-native-spacing-system';
 
 interface FollowsProp {
-  followers: string;
-  following: string;
+  followers_profile: string;
+  following_profile: string;
   myFunc?:()=>void
 }
 
@@ -13,12 +13,12 @@ export class Follows extends Component<FollowsProp> {
     return (
       <View style={styles.containerStyle}>
         <View style={styles.textStyle}>
-          <Text style={styles.colorText}>{this.props.followers}</Text>
+          <Text style={styles.colorText}>{this.props.followers_profile}</Text>
           <Text>Followers</Text>
           </View>
           <Queue size={50} />
           <View style={styles.textStyle}>
-          <Text style={styles.colorText}>{this.props.following}</Text>
+          <Text style={styles.colorText}>{this.props.following_profile}</Text>
           <Text>Followings</Text>
           </View>
        

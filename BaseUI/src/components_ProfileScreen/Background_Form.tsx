@@ -15,6 +15,10 @@ import Follows from './Follows';
 import Profile from './Profile';
 import ProfileButton from './ProfileButton';
 
+
+const image = {
+  uri: 'https://images.pexels.com/photos/586744/pexels-photo-586744.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+};
 export class Background_Form extends Component<{}> {
   state = {
     username: '',
@@ -55,8 +59,8 @@ export class Background_Form extends Component<{}> {
           <View style={styles.viewStyle}>
             {this.state.value ? (
               <Follows
-                followers={this.state.followers}
-                following={this.state.following}
+                followers_profile={this.state.followers}
+                following_profile={this.state.following}
               />
             ) : (
               <View></View>
@@ -90,9 +94,7 @@ export class Background_Form extends Component<{}> {
   }
 }
 
-const image = {
-  uri: 'https://images.pexels.com/photos/586744/pexels-photo-586744.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-};
+
 
 const styles = StyleSheet.create({
   styleButton: {

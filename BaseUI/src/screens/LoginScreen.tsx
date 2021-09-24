@@ -19,7 +19,6 @@ export class LoginScreen extends React.Component<{}, LoginScreenState> {
   };
   
   render() {
-    console.log("work");
 
 
     return (

@@ -22,12 +22,8 @@ const SubscriberCell: FunctionComponent<SubscriberCellProps> = props => {
           {props.subcriber.description}
         </Text>
       </View>
-    {/* {      props.subcriber.isFollowing?<FollowButton   dataState={props.subcriber.isFollowing} title={'aa'} >
-      </FollowButton>:<FollowButton dataState={props.subcriber.isFollowing} title={'bb'} ></FollowButton>
-} */}
      
 <FollowButton dataState={props.subcriber.isFollowing} onPress={props.onPressFollowButton} ></FollowButton>
-
 
     </View>
   );
@@ -62,20 +58,6 @@ const styles = StyleSheet.create({
     color: 'rgb(181, 182, 221)',
     fontSize: 12,
   },
-
-  //   styleGeneralButton: {
-  //   height: 29,
-  //   width: 92,
-  //   fontSize: 12,
-  //   },
-  // followButton: {
-  //   backgroundColor: 'rgb(64, 80, 164)',
-  //   color: 'white',
-  // },
-  //   followingButton: {
-  //     backgroundColor: 'rgba(190, 198, 255, 0.3)',
-  //     color: 'rgb(77, 91, 177)',
-  //   },
 
   buttonStyle: {
     width: 92,

@@ -11,6 +11,9 @@ interface BackItems {
   title?: string;
 }
 
+const image = {
+  uri: 'https://images.pexels.com/photos/586744/pexels-photo-586744.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+};
 export class Background extends Component<BackItems> {
   render() {
     return (
@@ -30,9 +33,7 @@ export class Background extends Component<BackItems> {
   }
 }
 
-const image = {
-  uri: 'https://images.pexels.com/photos/586744/pexels-photo-586744.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-};
+
 
 const styles = StyleSheet.create({
   viewStyle: {
