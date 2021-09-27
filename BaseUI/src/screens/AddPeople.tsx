@@ -4,70 +4,89 @@ import {
   ImageSourcePropType,
   ListRenderItemInfo,
   SectionList,
+  SectionListData,
+  SectionListProps,
   SectionListRenderItem,
   SectionListRenderItemInfo,
   StyleSheet,
   Text,
 } from 'react-native';
+import Subscriber_Cell from '../components_AddPeople/Subcriber_Cell';
 import Background from '../components_Subcriber/Background';
-import SubscriberCell from '../components_Subcriber/SubscriberCell';
+import SubscriberItem from './SubscriberScreen';
+
 
 export interface AddpeopleItem {
-  image: ImageSourcePropType;
-  title: string;
-  description: string;
-  isFollowing: any;
-  id:number
+
+  data: [{
+    image: ImageSourcePropType;
+    title: string;
+    description: string;
+    isFollowing: any;
+    id: number;
+  }] 
 }
 
-const Addpeople = () => {
-//   const [selectedId, setSelectedId] = useState(true);
 
+
+
+
+const Addpeople = () => {  
   const [subcribers, setSubcribers] = useState<AddpeopleItem[]>([
     {
-      image: {
-        uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/VanGogh-starry_night.jpg/1502px-VanGogh-starry_night.jpg',
-      },
-      title: 'First User',
-      description: 'Description...',
-      isFollowing: true,
-      id:1
-
-      
+      data: [
+        {
+          image: {
+            uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/VanGogh-starry_night.jpg/1502px-VanGogh-starry_night.jpg',
+          },
+          title: 'First User',
+          description: 'Description...',
+          isFollowing: true,
+          id: 1,
+        },
+      ],
     },
     {
-      image: {
-        uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/VanGogh-starry_night.jpg/1502px-VanGogh-starry_night.jpg',
-      },
-      title: 'First User',
-      description: 'Description...',
-      isFollowing: true,
-      id:2
 
-      
-    }
-    
+      data: [
+        {   image: {
+          uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/VanGogh-starry_night.jpg/1502px-VanGogh-starry_night.jpg',
+        },
+        title: 'Second User',
+        description: 'Description...',
+        isFollowing: true,
+        id: 2,}
+      ],
+    },
   ]);
-
-  let x = subcribers.map(item => {
-    return {...item, isFollowing: !item.isFollowing};
-  });
-
   console.log(subcribers);
 
-  const renderItem = (itemsProps: ListRenderItemInfo<AddpeopleItem>) => {
-    return (
-      <SubscriberCell
-        subcriber={itemsProps.item}
-        onPressFollowButton={() => {
-          setSubcribers(x);
-        }}
-        onPress={()=>{
-        }
+  const renderItem = (itemsProps: SectionListRenderItemInfo<AddpeopleItem>) => {
+ 
+
+  let datax = itemsProps.item.data
+  let y = datax.map(e=>{
+    return e.isFollowing, e.image, e.title, e.id, e.description
+  })
+   
+    return (null
+      // <Subscriber_Cell
+      //   subcriber={datax}
+     
+      //   onPressFollowButton={id => {
+      //     setSubcribers(
+      //       datax.map(item => {
         
-        }
-        
-      />
+      //         if (item.id===id) {
+      //           return {...item, isFollowing: !item.isFollowing};
+                
+      //         }
+
+      //         return {...item};
+      //       }),
+      //     );
+      //   }}
+      // />
     );
   };
 
@@ -77,12 +96,7 @@ const Addpeople = () => {
         style={styles.textContainer}
         sections={subcribers}
         renderItem={renderItem}
-        keyExtractor={(item) => item.id.toString()}
-        // extraData={selectedId}
-
-        /> */}
-          
-    
+      /> */}
     </Background>
   );
 };
@@ -94,3 +108,5 @@ const styles = StyleSheet.create({
     width: '100%',
   },
 });
+
+

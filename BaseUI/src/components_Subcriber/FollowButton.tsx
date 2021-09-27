@@ -5,13 +5,14 @@ import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 export interface FollowButtonProp {
 title?:string
 onPress?:()=>void
+press?:()=>void
 dataState?:boolean
 
 }
 const FollowButton: FunctionComponent<FollowButtonProp> = (props) => {
     
   return (
-    <TouchableOpacity onPress={props.onPress} style={props.dataState?styles.buttonStyle:styles.buttonStyle2}  >
+    <TouchableOpacity  onPress={props.onPress} style={props.dataState?styles.buttonStyle:styles.buttonStyle2}  >
         {props.dataState? <Text style={styles.followButton}>Follow</Text>:
         <Text style={styles.followingButton}>Following</Text>}
         

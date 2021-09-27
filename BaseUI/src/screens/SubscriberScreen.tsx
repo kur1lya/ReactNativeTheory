@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   FlatList,
   ImageSourcePropType,
@@ -8,17 +8,18 @@ import {
 } from 'react-native';
 import Background from '../components_Subcriber/Background';
 import SubscriberCell from '../components_Subcriber/SubscriberCell';
+import useEmail from '../hooks/useEmail';
 
-interface SubscriberItem {
+export interface SubscriberItem {
   image: ImageSourcePropType;
   title: string;
   description: string;
-  isFollowing: any;
-  id:number
+  isFollowing: boolean;
+  id: number;
 }
+let selectedId: number;
 
-const SubscriberItem = () => {
-  const [selectedId, setSelectedId] = useState(true);
+const SubscriberScreen = () => {
 
   const [subcribers, setSubcribers] = useState<SubscriberItem[]>([
     {
@@ -28,44 +29,39 @@ const SubscriberItem = () => {
       title: 'First User',
       description: 'Description...',
       isFollowing: true,
-      id:1
-
-      
+      id: 1,
     },
     {
       image: {
         uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/VanGogh-starry_night.jpg/1502px-VanGogh-starry_night.jpg',
       },
-      title: 'First User',
+      title: 'Second User',
       description: 'Description...',
       isFollowing: true,
-      id:2
-
-      
-    }
-    
+      id: 2,
+    },
   ]);
 
-  let x = subcribers.map(item => {
-    return {...item, isFollowing: !item.isFollowing};
-  });
 
-  console.log(subcribers);
+
+
+
+
 
   const renderItem = (itemsProps: ListRenderItemInfo<SubscriberItem>) => {
-    // const Background = itemsProps.item.id ===selectedId? false:true
     return (
       <SubscriberCell
         subcriber={itemsProps.item}
-        onPressFollowButton={() => {
-          setSubcribers(x);
+        onPressFollowButton={(id) => {
+          setSubcribers(subcribers.map(item => {
+            if (item.id ==id ) {
+              return {...item, isFollowing: !item.isFollowing};
+            }
+        
+            return {...item};
+          }));
         }}
-        onPress={()=>{
-          // setSelectedId(itemsProps.item.id.toString)
-        }
-        
-        }
-        
+     
       />
     );
   };
@@ -76,17 +72,12 @@ const SubscriberItem = () => {
         style={styles.textContainer}
         data={subcribers}
         renderItem={renderItem}
-        keyExtractor={(item) => item.id.toString()}
-        extraData={selectedId}
-
-        >
-          
-        </FlatList>
+      ></FlatList>
     </Background>
   );
 };
 
-export default SubscriberItem;
+export default SubscriberScreen;
 
 const styles = StyleSheet.create({
   textContainer: {

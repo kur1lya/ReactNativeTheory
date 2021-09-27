@@ -1,38 +1,39 @@
 import React, {FunctionComponent} from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {Queue} from 'react-native-spacing-system';
+import FollowButton from '../components_Subcriber/FollowButton';
 import {AddpeopleItem} from '../screens/AddPeople';
 import  { SubscriberItem } from '../screens/SubscriberScreen';
-import FollowButton from './FollowButton';
 
-export interface SubscriberCellProps {
-  subcriber: SubscriberItem
+export interface Subscriber_CellProps {
+  subcriber: AddpeopleItem
   onPressFollowButton: (id: number) => void;
   onPress?: () => void;
 }
 
-const SubscriberCell: FunctionComponent<SubscriberCellProps> = props => {  
+const Subscriber_Cell: FunctionComponent<Subscriber_CellProps> = props => {  
   return (
     <View style={styles.styleCell}>
-      <Image style={styles.styleImg} source={props.subcriber.image} />
+      {/* <Image style={styles.styleImg} source={props.} /> */}
       <Queue size={45} />
       <View style={styles.styleText}>
-        <Text style={styles.styleData}>{props.subcriber.title}</Text>
+        {/* <Text style={styles.styleData}>{props.subcriber.title}</Text> */}
         <Text style={styles.styleDecription}>
-          {props.subcriber.description}
+          {/* {props.subcriber.description} */}
         </Text>
       </View>
 
       <FollowButton
-        dataState={props.subcriber.isFollowing}
-        onPress={() =>
-          props.onPressFollowButton(props.subcriber.id)
-        }></FollowButton>
+        // dataState={props.subcriber.isFollowing}
+        // onPress={() =>
+        //   props.onPressFollowButton(props.subcriber.id)
+        // }
+        ></FollowButton>
     </View>
   );
 };
 
-export default SubscriberCell;
+export default Subscriber_Cell;
 
 const styles = StyleSheet.create({
   styleText: {
